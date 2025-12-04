@@ -6,7 +6,6 @@ with open("dataset") as f:
    lines = [line.strip() for line in f]
 
 grid = np.array([[1 if c == '@' else 0 for c in row] for row in lines])
-
 start_grid = grid.copy()
 kernel = np.ones((3, 3), dtype=int)
 
