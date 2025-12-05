@@ -1,6 +1,6 @@
 import numpy as np
 
-with open("dataset") as f:
+with open("input") as f:
     lines = [line.strip() for line in f]
 
 empty_line = lines.index('')
@@ -13,6 +13,6 @@ numbers = np.array([int(number) for number in lines_with_numbers])
 left = intervals[:, 0]
 right = intervals[:, 1]
 
-nr_in_interval = ((numbers[:, None] >= left) & (numbers[:, None] <= right)).any(axis=1)
+result = np.array([np.any((number >= left) & (number <= right)) for number in numbers])
 
-print("De code is: ", nr_in_interval.sum())
+print("De code is: ", result.sum())
